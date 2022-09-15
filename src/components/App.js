@@ -7,7 +7,12 @@ import Comments from "./Comments.js"
 function App() {
   console.log("Here's your data:", video);
   const [hideBtnStatus, setHideBtnStatus] = useState(true)
-
+  const [commentsToDisp, setCommentsToDisp] = useState(video.comments)
+  
+  function removeClick(removalId) {
+    let newComments = commentsToDisp.filter((comment) => comment.id !== removalId)
+    setCommentsToDisp(newComments)
+  }
   
   return (
     <div className="App">
@@ -21,7 +26,7 @@ function App() {
       />
       <VideoData data={video}/>
       <Buttons upvotes={video.upvotes} downvotes={video.downvotes} hideBtnStatus={hideBtnStatus} setHideBtnStatus={setHideBtnStatus}/>
-      <Comments comments={video.comments} dispStatus={hideBtnStatus}/>
+      <Comments comments={commentsToDisp} dispStatus={hideBtnStatus} removeClick={removeClick}/>
     </div>
   );
 }

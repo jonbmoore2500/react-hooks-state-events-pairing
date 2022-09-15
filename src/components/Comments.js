@@ -1,13 +1,11 @@
 import React from "react"
+import Comment from "./Comment.js"
 
 function Comments({comments, dispStatus}) {
     
     const numOfComments = comments.length
     const commentsDisplay = dispStatus ? comments.map((comment) => (
-        <div key={comment.id}>
-            <h4>{comment.user}</h4>
-            <h5>{comment.comment}</h5>
-        </div>
+        <Comment comment={comment}/>
     )) : null
 
 return (

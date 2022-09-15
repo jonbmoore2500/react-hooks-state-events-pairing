@@ -1,4 +1,8 @@
 import video from "../data/video.js";
+import React, {useState} from "react"
+import Buttons from "./Buttons.js"
+import VideoData from "./VideoData.js"
+import Comments from "./Comments.js"
 
 function App() {
   console.log("Here's your data:", video);
@@ -13,6 +17,9 @@ function App() {
         allowFullScreen
         title="Thinking in React"
       />
+      <VideoData data={video}/>
+      <Buttons />
+      <Comments />
     </div>
   );
 }

@@ -6,11 +6,9 @@ import Comments from "./Comments.js"
 
 function App() {
   console.log("Here's your data:", video);
+  const [hideBtnStatus, setHideBtnStatus] = useState(true)
 
-
-  function handleHideToggle() {
-    console.log('handleHideToggle')
-  }
+  
   return (
     <div className="App">
       <iframe
@@ -22,8 +20,8 @@ function App() {
         title="Thinking in React"
       />
       <VideoData data={video}/>
-      <Buttons upvotes={video.upvotes} downvotes={video.downvotes} onHideClick={handleHideToggle}/>
-      <Comments comments={video.comments}/>
+      <Buttons upvotes={video.upvotes} downvotes={video.downvotes} hideBtnStatus={hideBtnStatus} setHideBtnStatus={setHideBtnStatus}/>
+      <Comments comments={video.comments} dispStatus={hideBtnStatus}/>
     </div>
   );
 }

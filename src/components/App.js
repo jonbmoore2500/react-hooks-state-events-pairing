@@ -23,7 +23,7 @@ function App() {
       />
       <VideoData data={video}/>
       <Buttons upvotes={video.upvotes} downvotes={video.downvotes} onHideClick={handleHideToggle}/>
-      <Comments />
+      <Comments comments={video.comments}/>
     </div>
   );
 }

@@ -1,9 +1,19 @@
 import React from "react"
 
-function Comments() {
+function Comments({comments}) {
+    const numOfComments = comments.length
+
 
 return (
-    <h1>Comments component</h1>
+    <div className="commentsDiv">
+        <h1>{numOfComments} Comments</h1>
+        {comments.map((comment) => (
+            <div key={comment.id}>
+                <h4>{comment.user}</h4>
+                <h5>{comment.comment}</h5>
+            </div>
+        ))}
+    </div>
 )
 }
 
